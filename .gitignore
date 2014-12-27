@@ -27,3 +27,5 @@
 *.i*86
 *.x86_64
 *.hex
+hw/wifi_car/untitled.b#*
+hw/wifi_car/untitled.s#*
