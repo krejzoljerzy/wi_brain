@@ -33,24 +33,6 @@
 #include "retarget.h"
 
 /*****************************************************************************
- * Private types/enumerations/variables
- ****************************************************************************/
-
-#define BUTTONS_BUTTON1_GPIO_PORT_NUM			0
-#define BUTTONS_BUTTON1_GPIO_BIT_NUM			16
-
-#define JOYSTICK_UP_GPIO_PORT_NUM				1
-#define JOYSTICK_UP_GPIO_BIT_NUM				22
-#define JOYSTICK_DOWN_GPIO_PORT_NUM				1
-#define JOYSTICK_DOWN_GPIO_BIT_NUM				20
-#define JOYSTICK_LEFT_GPIO_PORT_NUM				1
-#define JOYSTICK_LEFT_GPIO_BIT_NUM				23
-#define JOYSTICK_RIGHT_GPIO_PORT_NUM			1
-#define JOYSTICK_RIGHT_GPIO_BIT_NUM				21
-#define JOYSTICK_PRESS_GPIO_PORT_NUM			1
-#define JOYSTICK_PRESS_GPIO_BIT_NUM				19
-
-/*****************************************************************************
  * Public types/enumerations/variables
  ****************************************************************************/
 
@@ -117,27 +99,100 @@ void Board_Debug_Init(void)
 static void Board_LED_Init(void)
 {
 	/* Set the PIO_7 as output */
-	Chip_GPIO_SetPinDIROutput(LPC_GPIO, 0, 7);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO, GPIO_LED1_PORT, GPIO_LED1_PIN);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO, GPIO_LED2_PORT, GPIO_LED2_PIN);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO, GPIO_LED3_PORT, GPIO_LED3_PIN);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO, GPIO_LED4_PORT, GPIO_LED4_PIN);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO, GPIO_LED5_PORT, GPIO_LED5_PIN);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO, GPIO_LED6_PORT, GPIO_LED6_PIN);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO, GPIO_LED7_PORT, GPIO_LED7_PIN);
+	Chip_GPIO_SetPinDIROutput(LPC_GPIO, GPIO_LED8_PORT, GPIO_LED8_PIN);
 }
 
 /* Sets the state of a board LED to on or off */
-void Board_LED_Set(uint8_t LEDNumber, bool On)
+void Board_LED_Set(uint8_t LEDNumber)
 {
-	if(LEDNumber == 0) {
-		Chip_GPIO_SetPinState(LPC_GPIO, 0, 7, On);
+	if(LEDNumber && LEDS_LED1) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED1_PORT, GPIO_LED1_PIN, 0);
+	}
+	if(LEDNumber && LEDS_LED2) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED2_PORT, GPIO_LED2_PIN, 0);
+	}
+	if(LEDNumber && LEDS_LED3) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED3_PORT, GPIO_LED3_PIN, 0);
+	}
+	if(LEDNumber && LEDS_LED4) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED4_PORT, GPIO_LED4_PIN, 0);
+	}
+	if(LEDNumber && LEDS_LED5) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED5_PORT, GPIO_LED5_PIN, 0);
+	}
+	if(LEDNumber && LEDS_LED6) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED6_PORT, GPIO_LED6_PIN, 0);
+	}
+	if(LEDNumber && LEDS_LED7) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED7_PORT, GPIO_LED7_PIN, 0);
+	}
+	if(LEDNumber && LEDS_LED8) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED8_PORT, GPIO_LED8_PIN, 0);
 	}
 }
 
-/* Returns the current state of a board LED */
-bool Board_LED_Test(uint8_t LEDNumber)
+/* Sets the state of a board LED to on or off */
+void Board_LED_Clr(uint8_t LEDNumber)
 {
-	return Chip_GPIO_GetPinState(LPC_GPIO, 0, 7);
+	if(LEDNumber && LEDS_LED1) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED1_PORT, GPIO_LED1_PIN, 1);
+	}
+	if(LEDNumber && LEDS_LED2) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED2_PORT, GPIO_LED2_PIN, 1);
+	}
+	if(LEDNumber && LEDS_LED3) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED3_PORT, GPIO_LED3_PIN, 1);
+	}
+	if(LEDNumber && LEDS_LED4) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED4_PORT, GPIO_LED4_PIN, 1);
+	}
+	if(LEDNumber && LEDS_LED5) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED5_PORT, GPIO_LED5_PIN, 1);
+	}
+	if(LEDNumber && LEDS_LED6) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED6_PORT, GPIO_LED6_PIN, 1);
+	}
+	if(LEDNumber && LEDS_LED7) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED7_PORT, GPIO_LED7_PIN, 1);
+	}
+	if(LEDNumber && LEDS_LED8) {
+		Chip_GPIO_SetPinState(LPC_GPIO, GPIO_LED8_PORT, GPIO_LED8_PIN, 1);
+	}
 }
 
 void Board_LED_Toggle(uint8_t LEDNumber)
 {
-	if (LEDNumber == 0)
-		Chip_GPIO_SetPinToggle(LPC_GPIO, 0, 7);
+	if(LEDNumber && LEDS_LED1) {
+		Chip_GPIO_SetPinToggle(LPC_GPIO, GPIO_LED1_PORT, GPIO_LED1_PIN);
+	}
+	if(LEDNumber && LEDS_LED2) {
+		Chip_GPIO_SetPinToggle(LPC_GPIO, GPIO_LED2_PORT, GPIO_LED2_PIN);
+	}
+	if(LEDNumber && LEDS_LED3) {
+		Chip_GPIO_SetPinToggle(LPC_GPIO, GPIO_LED3_PORT, GPIO_LED3_PIN);
+	}
+	if(LEDNumber && LEDS_LED4) {
+		Chip_GPIO_SetPinToggle(LPC_GPIO, GPIO_LED4_PORT, GPIO_LED4_PIN);
+	}
+	if(LEDNumber && LEDS_LED5) {
+		Chip_GPIO_SetPinToggle(LPC_GPIO, GPIO_LED5_PORT, GPIO_LED5_PIN);
+	}
+	if(LEDNumber && LEDS_LED6) {
+		Chip_GPIO_SetPinToggle(LPC_GPIO, GPIO_LED6_PORT, GPIO_LED6_PIN);
+	}
+	if(LEDNumber && LEDS_LED7) {
+		Chip_GPIO_SetPinToggle(LPC_GPIO, GPIO_LED7_PORT, GPIO_LED7_PIN);
+	}
+	if(LEDNumber && LEDS_LED8) {
+		Chip_GPIO_SetPinToggle(LPC_GPIO, GPIO_LED8_PORT, GPIO_LED8_PIN);
+	}
 }
 
 /* Set up and initialize all required blocks and functions related to the
@@ -151,60 +206,9 @@ void Board_Init(void)
 	Chip_GPIO_Init(LPC_GPIO);
 
 	/* Initialize UART */
-	UART_init();
-	Chip_UART_Init(LPC_USART);
-	uint32_t baudrate = Chip_UART_SetBaudFDR(LPC_USART,UART_BAUDRATE);
-	Chip_UART_IntEnable(LPC_USART,UART_IER_RBRINT|UART_IER_THREINT);
-	Chip_UART_SendRB();
+	//UART_init();
 	/* Initialize LEDs */
 	Board_LED_Init();
 }
 
-void Board_Buttons_Init(void)
-{
-	Chip_GPIO_SetPinDIRInput(LPC_GPIO, BUTTONS_BUTTON1_GPIO_PORT_NUM, BUTTONS_BUTTON1_GPIO_BIT_NUM);
-}
 
-uint32_t Buttons_GetStatus(void)
-{
-	uint8_t ret = NO_BUTTON_PRESSED;
-	if (!Chip_GPIO_GetPinState(LPC_GPIO, BUTTONS_BUTTON1_GPIO_PORT_NUM, BUTTONS_BUTTON1_GPIO_BIT_NUM)) {
-		ret |= BUTTONS_BUTTON1;
-	}
-	return ret;
-}
-
-void Board_Joystick_Init(void)
-{
-	Chip_IOCON_PinMuxSet(LPC_IOCON, JOYSTICK_UP_GPIO_PORT_NUM, JOYSTICK_UP_GPIO_BIT_NUM, (IOCON_FUNC0 | IOCON_MODE_PULLUP));
-	Chip_IOCON_PinMuxSet(LPC_IOCON, JOYSTICK_DOWN_GPIO_PORT_NUM, JOYSTICK_DOWN_GPIO_BIT_NUM, (IOCON_FUNC0 | IOCON_MODE_PULLUP));
-	Chip_IOCON_PinMuxSet(LPC_IOCON, JOYSTICK_LEFT_GPIO_PORT_NUM, JOYSTICK_LEFT_GPIO_BIT_NUM, (IOCON_FUNC0 | IOCON_MODE_PULLUP));
-	Chip_IOCON_PinMuxSet(LPC_IOCON, JOYSTICK_RIGHT_GPIO_PORT_NUM, JOYSTICK_RIGHT_GPIO_BIT_NUM, (IOCON_FUNC0 | IOCON_MODE_PULLUP));
-	Chip_IOCON_PinMuxSet(LPC_IOCON, JOYSTICK_PRESS_GPIO_PORT_NUM, JOYSTICK_PRESS_GPIO_BIT_NUM, (IOCON_FUNC0 | IOCON_MODE_PULLUP));
-	Chip_GPIO_SetPinDIRInput(LPC_GPIO, JOYSTICK_UP_GPIO_PORT_NUM, JOYSTICK_UP_GPIO_BIT_NUM);
-	Chip_GPIO_SetPinDIRInput(LPC_GPIO, JOYSTICK_DOWN_GPIO_PORT_NUM, JOYSTICK_DOWN_GPIO_BIT_NUM);
-	Chip_GPIO_SetPinDIRInput(LPC_GPIO, JOYSTICK_LEFT_GPIO_PORT_NUM, JOYSTICK_LEFT_GPIO_BIT_NUM);
-	Chip_GPIO_SetPinDIRInput(LPC_GPIO, JOYSTICK_RIGHT_GPIO_PORT_NUM, JOYSTICK_RIGHT_GPIO_BIT_NUM);
-	Chip_GPIO_SetPinDIRInput(LPC_GPIO, JOYSTICK_PRESS_GPIO_PORT_NUM, JOYSTICK_PRESS_GPIO_BIT_NUM);
-}
-
-uint8_t Joystick_GetStatus(void)
-{
-	uint8_t ret = NO_BUTTON_PRESSED;
-	if ((Chip_GPIO_GetPinState(LPC_GPIO, JOYSTICK_UP_GPIO_PORT_NUM, JOYSTICK_UP_GPIO_BIT_NUM)) == 0x00) {
-		ret |= JOY_UP;
-	}
-	else if (Chip_GPIO_GetPinState(LPC_GPIO, JOYSTICK_DOWN_GPIO_PORT_NUM, JOYSTICK_DOWN_GPIO_BIT_NUM) == 0x00) {
-		ret |= JOY_DOWN;
-	}
-	else if ((Chip_GPIO_GetPinState(LPC_GPIO, JOYSTICK_LEFT_GPIO_PORT_NUM, JOYSTICK_LEFT_GPIO_BIT_NUM)) == 0x00) {
-		ret |= JOY_LEFT;
-	}
-	else if (Chip_GPIO_GetPinState(LPC_GPIO, JOYSTICK_RIGHT_GPIO_PORT_NUM, JOYSTICK_RIGHT_GPIO_BIT_NUM) == 0x00) {
-		ret |= JOY_RIGHT;
-	}
-	else if ((Chip_GPIO_GetPinState(LPC_GPIO, JOYSTICK_PRESS_GPIO_PORT_NUM, JOYSTICK_PRESS_GPIO_BIT_NUM)) == 0x00) {
-		ret |= JOY_PRESS;
-	}
-	return ret;
-}

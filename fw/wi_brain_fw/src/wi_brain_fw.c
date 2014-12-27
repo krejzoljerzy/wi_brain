@@ -23,7 +23,6 @@
 // TODO: insert other definitions and declarations here
 
 int main(void) {
-
 #if defined (__USE_LPCOPEN)
 #if !defined(NO_BOARD_LIB)
     // Read clock settings and update SystemCoreClock variable
@@ -32,7 +31,7 @@ int main(void) {
     // functions related to the board hardware
     Board_Init();
     // Set the LED to the state of "On"
-    Board_LED_Set(0, true);
+    Board_LED_Set(LEDS_LED1);
 #endif
 #endif
 

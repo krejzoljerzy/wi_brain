@@ -91,22 +91,60 @@ extern "C" {
 #define LEDS_NO_LEDS        0x00
 
 /**
- * Button defines
+ *  GPIO defines
+ *  WARNING! Pin reserved due to ADC
+ *  pin escape routine
  */
-#define BUTTONS_BUTTON1     0x01
-#define NO_BUTTON_PRESSED   0x00
+
+#define GPIO_RESERVED_PIN 10
+#define GPIO_RESERVED_PORT 2
+#define GPIO_LED1_PORT		2
+#define GPIO_LED1_PIN		1
+#define GPIO_LED2_PORT		0
+#define GPIO_LED2_PIN		4
+#define GPIO_LED3_PORT		1
+#define GPIO_LED3_PIN		9
+#define GPIO_LED4_PORT		3
+#define GPIO_LED4_PIN		4
+#define GPIO_LED5_PORT		2
+#define GPIO_LED5_PIN		4
+#define GPIO_LED6_PORT		2
+#define GPIO_LED6_PIN		5
+#define GPIO_LED7_PORT		0
+#define GPIO_LED7_PIN		6
+#define GPIO_LED8_PORT		2
+#define GPIO_LED8_PIN		9
+
+ /**
+  * Battery measurement ADC pins
+  */
+#define ADC_PORT 1
+#define ADC_PIN 10
 
 /**
- * Joystick defines
+ *  General use PWM outputs
  */
-#define JOY_UP              0x01
-#define JOY_DOWN            0x02
-#define JOY_LEFT            0x04
-#define JOY_RIGHT           0x08
-#define JOY_PRESS           0x10
+#define PWM_0_PORT	1
+#define PWM_0_PIN	1
+#define PWM_1_PORT	1
+#define PWM_1_PIN	2
+#define PWM_10_PORT 0
+#define PWM_10_PIN	8
+#define PWM_11_PORT	0
+#define PWM_11_PIN	9
 
+/**
+ *  PWM used for H bridge driving
+ */
+#define MOTORA_PORT	1
+#define MOTORA_PIN	3
+#define MOTORB_PORT	1
+#define MOTORB_PIN	4
+
+/**
+ * UART defines
+ */
 #define UART_BAUDRATE		9600
-
 /**
  * @brief	Initialize buttons on the board
  * @return	Nothing

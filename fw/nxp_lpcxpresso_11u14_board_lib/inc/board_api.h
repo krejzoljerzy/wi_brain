@@ -90,19 +90,18 @@ int Board_UARTGetChar(void);
 void Board_UARTPutSTR(char *str);
 
 /**
- * @brief	Sets the state of a board LED to on or off
+ * @brief	Sets the state of a board LED to on
  * @param	LEDNumber	: LED number to set state for
- * @param	State		: true for on, false for off
  * @return	None
  */
-void Board_LED_Set(uint8_t LEDNumber, bool State);
+void Board_LED_Set(uint8_t LEDNumber);
 
 /**
- * @brief	Returns the current state of a board LED
+ * @brief	Sets the state of a board LED to off
  * @param	LEDNumber	: LED number to set state for
- * @return	true if the LED is on, otherwise false
+ * @return	None
  */
-bool Board_LED_Test(uint8_t LEDNumber);
+void Board_LED_Clr(uint8_t LEDNumber);
 
 /**
  * @brief	Toggles the current state of a board LED

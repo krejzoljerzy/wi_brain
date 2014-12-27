@@ -82,7 +82,7 @@ STATIC void SystemSetupClocking(void)
 	for (i = 0; i < 0x100; i++) {}
 
 	/* Set system PLL input to main oscillator */
-	Chip_Clock_SetSystemPLLSource(SYSCTL_PLLCLKSRC_MAINOSC);
+	Chip_Clock_SetSystemPLLSource(SYSCTL_PLLCLKSRC_IRC);
 
 	/* Power down PLL to change the PLL divider ratio */
 	Chip_SYSCTL_PowerDown(SYSCTL_POWERDOWN_SYSPLL_PD);
