@@ -29,4 +29,8 @@
 *.hex
 hw/wifi_car/untitled.b#*
 hw/wifi_car/untitled.s#*
-fw
+fw/.metadata/*
+fw/lpc_chip_11uxx_lib/Debug
+fw/nxp_lpcxpresso_11u14_board_lib/Debug
+fw/wi_brain_fw/Debug/makefile
+fw/wi_brain_fw/Debug/
